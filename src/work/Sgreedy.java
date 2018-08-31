@@ -38,7 +38,7 @@ public class Sgreedy extends Schedule{
 
     @Override
     public void ProcessSchedule(Task[] arrivedTask, int[] cpuOperate) {
-        if(arrivedTask != null && arrivedTask.length != 0){
+        if(arrivedTask != null){
             for(Task task : arrivedTask){
                 recordTask(task, getTimeTick());
             }
@@ -213,7 +213,7 @@ public class Sgreedy extends Schedule{
      */
     public static void main(String[] args) throws IOException {
         int cpuNumber = 2;
-        BottomMonitor bottomMonitor = new BottomMonitor("src/testFile/textSample.txt",cpuNumber);
+        BottomMonitor bottomMonitor = new BottomMonitor("src/testFile/test1.txt",cpuNumber);
         BottomService bottomService = new BottomService(bottomMonitor);
         Schedule schedule =  new Sgreedy();
         schedule.setBottomService(bottomService);
